@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" role="img" aria-labelledby="title desc">
+<title id="title">RepoPilot architecture</title><desc id="desc">A question enters the API and bounded agent. The agent uses read only tools over a hybrid index, then a citation verifier checks the final answer.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0c1225"/><stop offset="1" stop-color="#14224a"/></linearGradient><linearGradient id="accent" x2="1"><stop stop-color="#67e8f9"/><stop offset="1" stop-color="#a78bfa"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#020617" flood-opacity=".35"/></filter></defs>
+<rect width="1100" height="480" rx="24" fill="url(#bg)"/>
+<g fill="none" stroke="#60a5fa" stroke-width="3" opacity=".7"><path d="M228 147 H298"/><path d="M518 147 H588"/><path d="M808 147 H878"/><path d="M698 193 V274"/><path d="M698 352 V399 H408 V352"/><path d="M408 274 V193"/></g>
+<g font-family="Inter,Segoe UI,Arial,sans-serif" text-anchor="middle" filter="url(#shadow)">
+<rect x="42" y="96" width="186" height="102" rx="16" fill="#1e3a5f" stroke="#3b82f6"/><text x="135" y="138" font-size="19" font-weight="700" fill="white">Question</text><text x="135" y="165" font-size="13" fill="#bfdbfe">UI · CLI · API</text>
+<rect x="298" y="96" width="220" height="102" rx="16" fill="#24325e" stroke="#818cf8"/><text x="408" y="138" font-size="19" font-weight="700" fill="white">Bounded agent</text><text x="408" y="165" font-size="13" fill="#c7d2fe">5 tool calls by default</text>
+<rect x="588" y="96" width="220" height="102" rx="16" fill="#153b54" stroke="#22d3ee"/><text x="698" y="138" font-size="19" font-weight="700" fill="white">Read only tools</text><text x="698" y="165" font-size="13" fill="#a5f3fc">search · file · references</text>
+<rect x="878" y="96" width="180" height="102" rx="16" fill="#244451" stroke="#34d399"/><text x="968" y="138" font-size="19" font-weight="700" fill="white">Citations</text><text x="968" y="165" font-size="13" fill="#a7f3d0">server verified</text>
+<rect x="588" y="274" width="220" height="78" rx="16" fill="#1f3355" stroke="#38bdf8"/><text x="698" y="307" font-size="18" font-weight="700" fill="white">Hybrid search</text><text x="698" y="332" font-size="13" fill="#bae6fd">BM25 + vectors → RRF</text>
+<rect x="298" y="274" width="220" height="78" rx="16" fill="#273151" stroke="#a78bfa"/><text x="408" y="307" font-size="18" font-weight="700" fill="white">Source index</text><text x="408" y="332" font-size="13" fill="#ddd6fe">Python · Java · SQLite</text>
+</g><text x="550" y="442" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#94a3b8">Evidence flows back to the answer; repository text is never executed.</text>
+</svg>

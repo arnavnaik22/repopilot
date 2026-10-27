@@ -1,0 +1,20 @@
+{"id":"q01","type":"find_function","question":"Where is authenticate_user defined?","gold_locations":[{"path":"auth.py","start_line":15,"end_line":20}],"answerable":true}
+{"id":"q02","type":"find_function","question":"Where is get_user defined?","gold_locations":[{"path":"auth.py","start_line":9,"end_line":13}],"answerable":true}
+{"id":"q03","type":"find_function","question":"Where is require_active_user defined?","gold_locations":[{"path":"auth.py","start_line":22,"end_line":26}],"answerable":true}
+{"id":"q04","type":"find_function","question":"Where is profile_endpoint defined?","gold_locations":[{"path":"routes.py","start_line":3,"end_line":6}],"answerable":true}
+{"id":"q05","type":"find_function","question":"Where is health_endpoint defined?","gold_locations":[{"path":"routes.py","start_line":8,"end_line":9}],"answerable":true}
+{"id":"q06","type":"behavior","question":"How does authenticate_user reject inactive users?","gold_locations":[{"path":"auth.py","start_line":15,"end_line":20}],"answerable":true}
+{"id":"q07","type":"behavior","question":"What does get_user return for ada?","gold_locations":[{"path":"auth.py","start_line":9,"end_line":13}],"answerable":true}
+{"id":"q08","type":"behavior","question":"What error does require_active_user raise?","gold_locations":[{"path":"auth.py","start_line":22,"end_line":26}],"answerable":true}
+{"id":"q09","type":"behavior","question":"What does profile_endpoint return?","gold_locations":[{"path":"routes.py","start_line":3,"end_line":6}],"answerable":true}
+{"id":"q10","type":"behavior","question":"What does health_endpoint return?","gold_locations":[{"path":"routes.py","start_line":8,"end_line":9}],"answerable":true}
+{"id":"q11","type":"find_function","question":"Where is cache_result defined?","gold_locations":[{"path":"cache.py","start_line":4,"end_line":5}],"answerable":true}
+{"id":"q12","type":"find_function","question":"Where is get_cached_result defined?","gold_locations":[{"path":"cache.py","start_line":7,"end_line":8}],"answerable":true}
+{"id":"q13","type":"behavior","question":"How does cache_result store a value?","gold_locations":[{"path":"cache.py","start_line":4,"end_line":5}],"answerable":true}
+{"id":"q14","type":"behavior","question":"How does get_cached_result read a value?","gold_locations":[{"path":"cache.py","start_line":7,"end_line":8}],"answerable":true}
+{"id":"q15","type":"java","question":"What does greetUser return?","gold_locations":[{"path":"Service.java","start_line":2,"end_line":4}],"answerable":true}
+{"id":"q16","type":"java","question":"What does isReady return?","gold_locations":[{"path":"Service.java","start_line":6,"end_line":8}],"answerable":true}
+{"id":"q17","type":"unanswerable","question":"Where is Redis configured?","gold_locations":[],"answerable":false}
+{"id":"q18","type":"unanswerable","question":"How are payments processed?","gold_locations":[],"answerable":false}
+{"id":"q19","type":"unanswerable","question":"Where is the PostgreSQL migration?","gold_locations":[],"answerable":false}
+{"id":"q20","type":"unanswerable","question":"How does OAuth token refresh work?","gold_locations":[],"answerable":false}

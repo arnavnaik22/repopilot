@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 310" role="img" aria-labelledby="title desc">
+<title id="title">Hybrid retrieval pipeline</title><desc id="desc">A question is tokenized and embedded. BM25 and dense rankings are fused with reciprocal rank fusion to produce cited code chunks.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f5f9ff"/><stop offset="1" stop-color="#eaf1ff"/></linearGradient><linearGradient id="indigo" x2="1"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
+<rect width="1100" height="310" rx="22" fill="url(#bg)"/>
+<g fill="none" stroke="#94a3b8" stroke-width="3"><path d="M234 155 H300"/><path d="M470 107 H535"/><path d="M470 206 H535"/><path d="M715 107 H765 V155"/><path d="M715 206 H765 V155"/><path d="M890 155 H945"/></g>
+<g font-family="Inter,Segoe UI,Arial,sans-serif" text-anchor="middle">
+<rect x="35" y="109" width="199" height="92" rx="16" fill="#172554"/><text x="134" y="145" font-size="18" font-weight="700" fill="#fff">Question</text><text x="134" y="175" font-size="13" fill="#c7d2fe">names · behavior · paths</text>
+<rect x="300" y="60" width="170" height="94" rx="15" fill="#dbeafe" stroke="#60a5fa"/><text x="385" y="98" font-size="19" font-weight="700" fill="#1e3a8a">BM25</text><text x="385" y="125" font-size="13" fill="#334155">identifier tokens</text>
+<rect x="300" y="158" width="170" height="94" rx="15" fill="#ede9fe" stroke="#a78bfa"/><text x="385" y="196" font-size="19" font-weight="700" fill="#5b21b6">Dense</text><text x="385" y="223" font-size="13" fill="#475569">local embeddings</text>
+<rect x="535" y="60" width="180" height="94" rx="15" fill="#dbeafe" stroke="#60a5fa"/><text x="625" y="99" font-size="17" font-weight="700" fill="#1e3a8a">Keyword rank</text><text x="625" y="126" font-size="13" fill="#334155">top 50 chunks</text>
+<rect x="535" y="158" width="180" height="94" rx="15" fill="#ede9fe" stroke="#a78bfa"/><text x="625" y="197" font-size="17" font-weight="700" fill="#5b21b6">Semantic rank</text><text x="625" y="224" font-size="13" fill="#475569">top 50 chunks</text>
+<rect x="765" y="109" width="125" height="92" rx="16" fill="url(#indigo)"/><text x="827" y="145" font-size="20" font-weight="700" fill="#fff">RRF</text><text x="827" y="174" font-size="13" fill="#e0e7ff">rank fusion</text>
+<rect x="945" y="109" width="125" height="92" rx="16" fill="#059669"/><text x="1007" y="145" font-size="18" font-weight="700" fill="#fff">Results</text><text x="1007" y="174" font-size="13" fill="#d1fae5">file + lines</text>
+</g><text x="550" y="282" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#64748b">RRF score = Σ 1 / (60 + rank); the score uses rank order instead of mixing incompatible raw scores.</text>
+</svg>
