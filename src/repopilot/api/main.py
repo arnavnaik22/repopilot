@@ -1,6 +1,6 @@
 from pathlib import Path
 from fastapi import BackgroundTasks, FastAPI, HTTPException
-from repopilot.agent.llm import AnthropicLLM
+from repopilot.agent.llm import configured_llm
 from repopilot.agent.redact import redact
 from repopilot.agent.loop import investigate
 from repopilot.agent.tools import InvestigationTools
@@ -58,6 +58,6 @@ def query(request: QueryRequest):
     try:
         retriever = HybridRetriever(store,configured_embedder())
         tools = InvestigationTools(root,retriever,request.top_k,request.retrieval_mode)
-        return investigate(request.question,tools,AnthropicLLM(),request.max_tool_calls)
+        return investigate(request.question,tools,configured_llm(),request.max_tool_calls)
     except Exception as exc:
         return QueryResponse(answer="Unable to complete the investigation.",evidence_status="insufficient",error=redact(exc))

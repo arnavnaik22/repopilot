@@ -22,7 +22,7 @@ def test_index_and_query_flow(tmp_path,monkeypatch):
             name="search_code" if self.n==1 else "submit_answer"
             payload={"query":"authenticate_user"} if self.n==1 else {"answer":"The function rejects inactive users.","evidence_status":"supported","citations":[{"path":"auth.py","start_line":15,"end_line":20}]}
             return SimpleNamespace(content=[SimpleNamespace(type="tool_use",name=name,input=payload,id=str(self.n))])
-    monkeypatch.setattr("repopilot.api.main.AnthropicLLM",Fake)
+    monkeypatch.setattr("repopilot.api.main.configured_llm",Fake)
     client=TestClient(app)
     indexed=client.post("/repositories/index",json={"repo_path":str(root)})
     assert indexed.status_code==200

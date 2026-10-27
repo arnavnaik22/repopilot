@@ -32,7 +32,7 @@ python -m pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-Put an Anthropic API key in `.env` for answers. The default model is `claude-haiku-4-5-20251001`, which Anthropic [lists as active](https://docs.anthropic.com/en/docs/about-claude/model-deprecations). You can set `REPOPILOT_MODEL` to another model supporting native tool use. The first production index downloads the BGE small ONNX model into `.cache/fastembed`; later runs use the cached copy.
+Create a [Groq API key](https://console.groq.com/keys) and put it in `.env` as `GROQ_API_KEY=...`. Groq [offers a free tier](https://console.groq.com/docs/billing-faqs) with [rate limits](https://console.groq.com/docs/rate-limits); no key is stored in Git. The default `openai/gpt-oss-20b` model [supports tool use](https://console.groq.com/docs/tool-use/overview). If you already use Anthropic, set `REPOPILOT_PROVIDER=anthropic`, `ANTHROPIC_API_KEY`, and optionally `REPOPILOT_ANTHROPIC_MODEL` instead. The first production index downloads the BGE small ONNX model into `.cache/fastembed`; later runs use the cached copy.
 
 In two terminals:
 
@@ -94,7 +94,7 @@ Reproduce the primary benchmark:
 python -m eval.run_eval --repo data/eval_repo --dataset eval/real_dataset.jsonl
 ```
 
-The fetch script refuses to overwrite an existing checkout. If you have already fetched it, run the second command alone. To run a hosted answer evaluation after adding your API key, add `--agent --judge`; use `--limit 3` for a quick paid trial. The judge grades answer correctness against reference facts; review its judgments before treating that score as a final result. No hosted answer score is claimed in the committed results.
+The fetch script refuses to overwrite an existing checkout. If you have already fetched it, run the second command alone. To run a hosted answer evaluation after adding your API key, add `--agent --judge`; use `--limit 3` for a small trial within your provider's limits. The judge grades answer correctness against reference facts; review its judgments before treating that score as a final result. No hosted answer score is claimed in the committed results.
 
 ### Fast offline fixture
 
@@ -123,7 +123,7 @@ python -m pytest -q -m "not integration"
 
 Tests cover discovery, line preservation, tokenization, search, path traversal, provenance, references, and a scripted fake model. CI runs the same suite and offline evaluation on every push and pull request.
 
-The full suite passed locally on Windows with Python 3.12: **10 passed**. An upstream Starlette `TestClient` deprecation warning remains. The production embedder successfully indexed the pinned repository. A live Anthropic answer was not run because no API key is configured in this checkout.
+The full suite passed locally on Windows with Python 3.12: **12 passed**. An upstream Starlette `TestClient` deprecation warning remains. The production embedder successfully indexed the pinned repository. A live hosted answer was not run because no API key is configured in this checkout; the Groq tool-call adapter is tested with a mock HTTP server.
 
 ## Limits and design choices
 
@@ -131,7 +131,7 @@ The full suite passed locally on Windows with Python 3.12: **10 passed**. An ups
 - Local BM25 ranks in memory; SQLite stores vectors as JSON per chunk. This favors readability and a few thousand chunks over maximum scale. A dedicated search engine becomes appropriate for very large repositories.
 - Citation verification proves source provenance and range validity. It does not establish that the prose faithfully interprets the code.
 - RepoPilot is intended to run locally. If you expose the API to other users, set `REPOPILOT_ALLOWED_ROOTS` and add authentication before accepting arbitrary paths.
-- The production embedder downloads a model on first use, and hosted answers require an Anthropic key. Offline tests use a deterministic hash embedder.
+- The production embedder downloads a model on first use, and hosted answers require a Groq or Anthropic key. Offline tests use a deterministic hash embedder.
 - The pinned upstream repository includes syntax newer than Python 3.12 in one file; RepoPilot falls back to line windows for files the local AST cannot parse.
 
 ## Repository map

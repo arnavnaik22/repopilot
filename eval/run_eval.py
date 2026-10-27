@@ -6,7 +6,7 @@ import statistics
 import subprocess
 import time
 from pathlib import Path
-from repopilot.agent.llm import AnthropicLLM
+from repopilot.agent.llm import configured_llm
 from repopilot.agent.loop import investigate
 from repopilot.agent.tools import InvestigationTools
 from repopilot.config import data_dir
@@ -48,11 +48,11 @@ def run(repo, dataset, modes, agent=False, offline=False, judge=False, limit=Non
             hits=retriever.search(case["question"],3,mode)
             row={"id":case["id"],"answerable":case["answerable"],"recall_at_3":any(overlaps(h,g) for h in hits for g in case["gold_locations"]) if case["answerable"] else None,"retrieval_ms":round((time.monotonic()-start)*1000,2)}
             if agent:
-                result=investigate(case["question"],InvestigationTools(repo,retriever,mode=mode),AnthropicLLM())
+                result=investigate(case["question"],InvestigationTools(repo,retriever,mode=mode),configured_llm())
                 citations=result.citations
                 row.update({"evidence_status":result.evidence_status,"citation_validity":all(c.verified for c in citations) if citations else None,"citation_relevance":sum(any(overlaps(c,g) for g in case["gold_locations"]) for c in citations)/len(citations) if citations else None,"latency_ms":result.latency_ms,"tool_calls":result.tool_calls_used,"error":result.error})
                 if judge and not result.error:
-                    row["judge"]=judge_answer(case,result.answer,AnthropicLLM())
+                    row["judge"]=judge_answer(case,result.answer,configured_llm())
             rows.append(row)
         answerable=[r for r in rows if r["answerable"]]
         summary={"recall_at_3":round(sum(r["recall_at_3"] for r in answerable)/len(answerable),3),"median_retrieval_ms":round(statistics.median(r["retrieval_ms"] for r in rows),2)}

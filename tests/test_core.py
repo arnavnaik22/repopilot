@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from types import SimpleNamespace
+import httpx
 import pytest
 from repopilot.agent.loop import investigate
 from repopilot.agent.path_guard import guarded_path
@@ -109,3 +110,32 @@ def test_answer_judge_schema_with_fake_model():
             return SimpleNamespace(content=[SimpleNamespace(type="tool_use",name="submit_grade",input={"score":1,"reason":"Covers the facts"})])
     grade=judge_answer({"question":"Where?","reference_answer":"Here","key_facts":["Here"]},"Here",Fake())
     assert grade["score"]==1
+
+
+def test_groq_tool_adapter_end_to_end(tmp_path,monkeypatch):
+    from repopilot.agent.llm import GroqLLM
+    monkeypatch.setenv("REPOPILOT_DATA_DIR",str(tmp_path))
+    monkeypatch.setenv("GROQ_API_KEY","gsk_test_key")
+    rid=index_repository(ROOT,embedder=HashEmbedder())
+    tools=InvestigationTools(ROOT,HybridRetriever(Store(tmp_path/rid),HashEmbedder()))
+    sent=[]
+    def respond(request):
+        body=json.loads(request.content)
+        sent.append(body)
+        if len(sent)==1:
+            name,args="search_code",{"query":"authenticate_user"}
+        else:
+            name,args="submit_answer",{"answer":"The function rejects inactive users.","evidence_status":"supported","citations":[{"path":"auth.py","start_line":15,"end_line":20}]}
+        return httpx.Response(200,json={"choices":[{"message":{"content":None,"tool_calls":[{"id":str(len(sent)),"type":"function","function":{"name":name,"arguments":json.dumps(args)}}]}}]})
+    client=httpx.Client(transport=httpx.MockTransport(respond))
+    result=investigate("How are inactive users rejected?",tools,GroqLLM(client=client),max_calls=2)
+    assert result.evidence_status=="supported" and result.citations[0].verified
+    assert any(message["role"]=="tool" for message in sent[1]["messages"])
+    assert sent[0]["model"]=="openai/gpt-oss-20b"
+    client.close()
+
+
+def test_groq_key_redaction(monkeypatch):
+    from repopilot.agent.redact import redact
+    monkeypatch.setenv("GROQ_API_KEY","gsk_test_secret")
+    assert "gsk_test_secret" not in redact("failed with gsk_test_secret")

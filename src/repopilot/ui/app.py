@@ -1,6 +1,9 @@
 import os
 import requests
 import streamlit as st
+from dotenv import load_dotenv
+
+load_dotenv()
 
 API = os.getenv("REPOPILOT_API_URL", "http://127.0.0.1:8000")
 st.set_page_config(page_title="RepoPilot", page_icon="🧭", layout="wide")
@@ -9,6 +12,7 @@ st.title("🧭 RepoPilot")
 st.caption("Ask your repository a question. See the source lines behind every answer.")
 with st.sidebar:
     st.header("Repository")
+    st.caption(f"LLM provider: {os.getenv('REPOPILOT_PROVIDER', 'groq')}")
     root = st.text_input("Local path",placeholder="C:/Projects/my-repo")
     if st.button("Index repository",use_container_width=True) and root:
         try:

@@ -9,7 +9,7 @@ flowchart LR
   SCAN --> STORE[(SQLite index)]
   IDX --> EMB[Local ONNX embeddings]
   API --> LOOP[Bounded agent loop]
-  LOOP --> LLM[Anthropic API]
+  LOOP --> LLM[Groq or Anthropic API]
   LOOP --> TOOLS[Search, read, references]
   TOOLS --> STORE
   LOOP --> VERIFY[Citation verifier]

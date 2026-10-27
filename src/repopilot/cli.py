@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from repopilot.agent.llm import AnthropicLLM
+from repopilot.agent.llm import configured_llm
 from repopilot.agent.loop import investigate
 from repopilot.agent.tools import InvestigationTools
 from repopilot.config import data_dir
@@ -24,7 +24,11 @@ def main():
     if store.state().get("status") != "ready":
         p.error("Repository is not indexed. Run 'python -m repopilot.cli index <repo>' first.")
     retriever = HybridRetriever(store,configured_embedder())
-    response = investigate(args.question,InvestigationTools(root,retriever),AnthropicLLM())
+    try:
+        llm = configured_llm()
+    except (RuntimeError, ValueError) as exc:
+        p.error(str(exc))
+    response = investigate(args.question,InvestigationTools(root,retriever),llm)
     print(json.dumps(response.model_dump(),indent=2))
 
 
