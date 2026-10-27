@@ -105,15 +105,7 @@ $env:REPOPILOT_EMBEDDER = "hash"
 python -m eval.run_eval --offline
 ```
 
-The [fixture results](eval/results/dataset_retrieval.json) are:
-
-| Mode | Recall@3 on 16 answerable questions |
-| --- | ---: |
-| Hybrid | 100% |
-| BM25 | 100% |
-| Dense | 100% |
-
-This tiny fixture checks that all modes run and find obvious symbols. It is not a quality comparison.
+The [fixture results](eval/results/dataset_retrieval.json) record 16/16 hits for every mode. That is expected for a deliberately easy, five-file repository with 21 chunks and questions that often name the target function. The four unanswerable questions are excluded from Recall@3. Treat this only as a wiring and line-range smoke test; the pinned-repository results above are the retrieval comparison.
 
 ## Tests
 
