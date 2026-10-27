@@ -9,3 +9,5 @@ data/
 dist/
 build/
 .streamlit/secrets.toml
+output/
+tmp/
