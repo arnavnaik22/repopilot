@@ -123,7 +123,7 @@ python -m pytest -q -m "not integration"
 
 Tests cover discovery, line preservation, tokenization, search, path traversal, provenance, references, and a scripted fake model. CI runs the same suite and offline evaluation on every push and pull request.
 
-The full suite passed locally on Windows with Python 3.12: **12 passed**. An upstream Starlette `TestClient` deprecation warning remains. The production embedder successfully indexed the pinned repository. A live hosted answer was not run because no API key is configured in this checkout; the Groq tool-call adapter is tested with a mock HTTP server.
+The full suite passed locally on Windows with Python 3.12: **12 passed**. An upstream Starlette `TestClient` deprecation warning remains. The production embedder successfully indexed the pinned repository. One live Groq query found `create_access_token` in `backend/app/core/security.py:22-26` and returned a verified citation after two tool calls. This is a smoke check, not an answer-quality benchmark; CI tests the Groq adapter with a mock HTTP server and needs no API key.
 
 ## Limits and design choices
 
