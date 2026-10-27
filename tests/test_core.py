@@ -99,3 +99,13 @@ def test_request_validation():
     from repopilot.schemas import QueryRequest
     with pytest.raises(ValidationError):
         QueryRequest(repository_id="abc",question="hi",top_k=21)
+
+
+def test_answer_judge_schema_with_fake_model():
+    from eval.judge import judge_answer
+    class Fake:
+        def call(self,system,messages,tools,force_submit=False):
+            assert force_submit and tools[0]["name"]=="submit_grade"
+            return SimpleNamespace(content=[SimpleNamespace(type="tool_use",name="submit_grade",input={"score":1,"reason":"Covers the facts"})])
+    grade=judge_answer({"question":"Where?","reference_answer":"Here","key_facts":["Here"]},"Here",Fake())
+    assert grade["score"]==1

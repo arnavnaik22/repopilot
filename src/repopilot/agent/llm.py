@@ -15,7 +15,7 @@ class AnthropicLLM:
         for attempt in range(3):
             try:
                 return self.client.messages.create(model=self.model, max_tokens=1600, system=system, messages=messages, tools=tools,
-                    tool_choice={"type":"tool","name":"submit_answer"} if force_submit else {"type":"auto"}, timeout=30)
+                    tool_choice={"type":"tool","name":tools[-1]["name"]} if force_submit else {"type":"auto"}, timeout=30)
             except Exception as exc:
                 status = getattr(exc,"status_code",None)
                 if attempt == 2 or (status not in (429,500,502,503,504) and "timeout" not in type(exc).__name__.lower()):

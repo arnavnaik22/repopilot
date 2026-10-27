@@ -1,0 +1,538 @@
+{
+  "repository": "data\\eval_repo",
+  "repository_commit": "f4bcfaba7c85be3c6332cc74a20819f586dcdbc6",
+  "dataset": "eval\\real_dataset.jsonl",
+  "dataset_sha256": "e4d26df599e7b2837ef52694da3e485fc4767c3ff3095462c68a7aa35358af5a",
+  "embedder": "fastembed",
+  "questions": 28,
+  "modes": {
+    "hybrid": {
+      "summary": {
+        "recall_at_3": 0.75,
+        "median_retrieval_ms": 63.0
+      },
+      "cases": [
+        {
+          "id": "r01",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r02",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r03",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r04",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r05",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 79.0
+        },
+        {
+          "id": "r06",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r07",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r08",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r09",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r10",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r11",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r12",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r13",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r14",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r15",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r16",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r17",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r18",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r19",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r20",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r21",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r22",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r23",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r24",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r25",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r26",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r27",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 79.0
+        },
+        {
+          "id": "r28",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 78.0
+        }
+      ]
+    },
+    "bm25": {
+      "summary": {
+        "recall_at_3": 0.833,
+        "median_retrieval_ms": 78.5
+      },
+      "cases": [
+        {
+          "id": "r01",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 93.0
+        },
+        {
+          "id": "r02",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 79.0
+        },
+        {
+          "id": "r03",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 93.0
+        },
+        {
+          "id": "r04",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r05",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r06",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r07",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r08",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r09",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r10",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r11",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r12",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r13",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r14",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r15",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r16",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r17",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 109.0
+        },
+        {
+          "id": "r18",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r19",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 125.0
+        },
+        {
+          "id": "r20",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r21",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r22",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 93.0
+        },
+        {
+          "id": "r23",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 79.0
+        },
+        {
+          "id": "r24",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r25",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r26",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r27",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 93.0
+        },
+        {
+          "id": "r28",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 78.0
+        }
+      ]
+    },
+    "dense": {
+      "summary": {
+        "recall_at_3": 0.667,
+        "median_retrieval_ms": 94.0
+      },
+      "cases": [
+        {
+          "id": "r01",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 125.0
+        },
+        {
+          "id": "r02",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r03",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 110.0
+        },
+        {
+          "id": "r04",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 109.0
+        },
+        {
+          "id": "r05",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 109.0
+        },
+        {
+          "id": "r06",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r07",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r08",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r09",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 93.0
+        },
+        {
+          "id": "r10",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r11",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r12",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 62.0
+        },
+        {
+          "id": "r13",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 63.0
+        },
+        {
+          "id": "r14",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r15",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r16",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 109.0
+        },
+        {
+          "id": "r17",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r18",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r19",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 109.0
+        },
+        {
+          "id": "r20",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 79.0
+        },
+        {
+          "id": "r21",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 78.0
+        },
+        {
+          "id": "r22",
+          "answerable": true,
+          "recall_at_3": false,
+          "retrieval_ms": 140.0
+        },
+        {
+          "id": "r23",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 125.0
+        },
+        {
+          "id": "r24",
+          "answerable": true,
+          "recall_at_3": true,
+          "retrieval_ms": 94.0
+        },
+        {
+          "id": "r25",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 141.0
+        },
+        {
+          "id": "r26",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 172.0
+        },
+        {
+          "id": "r27",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 234.0
+        },
+        {
+          "id": "r28",
+          "answerable": false,
+          "recall_at_3": null,
+          "retrieval_ms": 109.0
+        }
+      ]
+    }
+  }
+}

@@ -15,6 +15,7 @@ with st.sidebar:
             r = requests.post(f"{API}/repositories/index",json={"repo_path":root},timeout=30)
             r.raise_for_status()
             st.session_state.rid = r.json()["repository_id"]
+            st.session_state.pop("result",None)
             st.success("Indexing started")
         except requests.RequestException as exc: st.error(str(exc))
     rid = st.text_input("Repository ID",value=st.session_state.get("rid",""))
