@@ -118,7 +118,7 @@ This tiny fixture checks that all modes run and find obvious symbols. It is not 
 ## Tests
 
 ```powershell
-pytest -q -m "not integration"
+python -m pytest -q -m "not integration"
 ```
 
 Tests cover discovery, line preservation, tokenization, search, path traversal, provenance, references, and a scripted fake model. CI runs the same suite and offline evaluation on every push and pull request.
